@@ -58,18 +58,19 @@ class _MyHomePageState extends State<MyHomePage> {
           Stack(
             children: <Widget>[
               Container(
-                height: _size.height * 0.3,
-                color: Color(_getColorHexFromStr('#FFF5EA')),
+                height: _size.height * 0.36,
+                color: Color(_getColorHexFromStr('#F5F5DC')),
               ),
               Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 10.0),
+                    padding: EdgeInsets.fromLTRB(15.0, 60.0, 15.0, 10.0),
                     child: Material(
                       elevation: 10.0,
                       borderRadius: BorderRadius.circular(25.0),
                       child: TextFormField(
                         decoration: InputDecoration(
+                          border: InputBorder.none,
                           prefixIcon: Icon(
                             Icons.search,
                             color: Colors.black,
@@ -84,6 +85,134 @@ class _MyHomePageState extends State<MyHomePage> {
                           )
                         ),
                       ),
+                    ),
+                  ),
+                  SizedBox(height: 15.0,),
+                  Padding(
+                    padding: EdgeInsets.only(left: 40.0, top: 20.0),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 10.0),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(
+                            color: Colors.orange,
+                            style: BorderStyle.solid,
+                            width: 3.0
+                          )
+                        ),
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                '인기있는 레시피',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+//                                  fontFamily: 'Timesroman',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                'This Week',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+//                                  fontFamily: 'Timesroman',
+//                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 30.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 15.0, top: 15.0),
+                    height: 160.0,
+                    child: ListView(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        _buildWeeklyCard(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container _buildWeeklyCard() {
+    return Container(
+      width: 300.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0),
+        color: Colors.white,
+      ),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: 160.0,
+            height: 130.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              image: DecorationImage(
+                image: AssetImage('assets/circle_chickenPlate.png')
+              ),
+            ),
+          ),
+//                              SizedBox(width: 20.0,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                '그릴 치킨과',
+                style: TextStyle(
+                  fontSize: 18.0,
+//                                      fontFamily: 'Quicksand'
+                ),
+              ),
+              Text(
+                '과일 샐러드',
+                style: TextStyle(
+                  fontSize: 18.0,
+//                                        fontFamily: 'Quicksand'
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                width: 120.0,
+                height: 2.0,
+                color: Colors.orange,
+              ),
+              SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    width: 25.0,
+                    height: 25.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.5),
+                      image: DecorationImage(
+                        image: AssetImage('assets/cook_jamie_oliver.jpg')
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  Text(
+                    'Jamie Oliver',
+                    style: TextStyle(
+                      fontSize: 15.0,
                     ),
                   ),
                 ],
