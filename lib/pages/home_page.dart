@@ -156,30 +156,35 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                child: Container(
-                  width: _size.width * 0.8,
-                  height: _size.height * 0.4,
-                  margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                        image: AssetImage('assets/today_3.jpg'),
-                        fit: BoxFit.cover
+                child: GestureDetector(
+                  onTap: () {
+
+                  },
+                  child: Container(
+                    width: _size.width * 0.8,
+                    height: _size.height * 0.4,
+                    margin: EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      image: DecorationImage(
+                          image: AssetImage('assets/today_3.jpg'),
+                          fit: BoxFit.cover
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey[500],
+                            offset: Offset(4.0, 4.0),
+                            blurRadius: 15.0,
+                            spreadRadius: 1.0
+                        ),
+                        BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-4.0, -4.0),
+                            blurRadius: 15.0,
+                            spreadRadius: 1.0
+                        ),
+                      ],
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey[500],
-                          offset: Offset(4.0, 4.0),
-                          blurRadius: 15.0,
-                          spreadRadius: 1.0
-                      ),
-                      BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-4.0, -4.0),
-                          blurRadius: 15.0,
-                          spreadRadius: 1.0
-                      ),
-                    ],
                   ),
                 ),
               ),

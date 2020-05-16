@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'package:followchef/pages/home_page.dart';
+import 'package:followchef/routes/route_generator.dart';
+import 'package:followchef/routes/routing_constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      onGenerateRoute: RouteGenerator.generateRoute,
+      initialRoute: LoadingPageRoute,
       debugShowCheckedModeBanner: false,
     );
   }
