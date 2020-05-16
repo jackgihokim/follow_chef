@@ -36,163 +36,165 @@ class _HomePageState extends State<HomePage> {
     final Size _size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Container(
-                height: _size.height * 0.36,
-                color: Color(_getColorHexFromStr('#edeace')),
-              ),
-              Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(15.0, 60.0, 15.0, 10.0),
-                    child: Material(
-                      elevation: 10.0,
-                      borderRadius: BorderRadius.circular(25.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                            ),
-                            contentPadding: EdgeInsets.only(
-                                left: 15.0,
-                                top: 15.0
-                            ),
-                            hintText: 'Search for chef, cuisine, recipes',
-                            hintStyle: TextStyle(
-                                color: Colors.grey
-                            )
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                Container(
+                  height: _size.height * 0.36,
+                  color: Color(_getColorHexFromStr('#edeace')),
+                ),
+                Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.fromLTRB(15.0, 60.0, 15.0, 10.0),
+                      child: Material(
+                        elevation: 10.0,
+                        borderRadius: BorderRadius.circular(25.0),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: Colors.black,
+                              ),
+                              contentPadding: EdgeInsets.only(
+                                  left: 15.0,
+                                  top: 15.0
+                              ),
+                              hintText: 'Search for chef, cuisine, recipes',
+                              hintStyle: TextStyle(
+                                  color: Colors.grey
+                              )
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 15.0,),
-                  Padding(
-                    padding: EdgeInsets.only(left: 40.0, top: 20.0),
-                    child: Container(
-                      padding: EdgeInsets.only(left: 10.0),
-                      decoration: BoxDecoration(
-                        border: Border(
-                            left: BorderSide(
-                                color: Colors.orange,
-                                style: BorderStyle.solid,
-                                width: 3.0
-                            )
+                    SizedBox(height: 15.0,),
+                    Padding(
+                      padding: EdgeInsets.only(left: 40.0, top: 20.0),
+                      child: Container(
+                        padding: EdgeInsets.only(left: 10.0),
+                        decoration: BoxDecoration(
+                          border: Border(
+                              left: BorderSide(
+                                  color: Colors.orange,
+                                  style: BorderStyle.solid,
+                                  width: 3.0
+                              )
+                          ),
                         ),
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'POPULAR RECIPES',
-                                style: TextStyle(
-                                  fontSize: 20.0,
+                        child: Row(
+                          children: <Widget>[
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'POPULAR RECIPES',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
 //                                  fontFamily: 'Timesroman',
-                                  fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                'This Week',
-                                style: TextStyle(
-                                  fontSize: 20.0,
+                                Text(
+                                  'This Week',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
 //                                  fontFamily: 'Timesroman',
 //                                  fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.0),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 15.0),
+                      height: 180.0,
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          SizedBox(width: 15.0),
+                          _weeklyCard(),
+                          SizedBox(width: 15.0),
+                          _weeklyCard(),
+                          SizedBox(width: 15.0),
+                          _weeklyCard(),
+                          SizedBox(width: 15.0),
+                          _weeklyCard(),
+                          SizedBox(width: 15.0),
+                          _weeklyCard(),
+                          SizedBox(width: 15.0),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 40.0,),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: EdgeInsets.only(left: 50.0),
+              child: Text(
+                'TODAY',
+                style: TextStyle(
+                  color: Color(_getColorHexFromStr('#5c492c')),
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+//                fontFamily: 'Timesroman',
+                ),
+              ),
+            ),
+            SizedBox(height: 10.0,),
+            Stack(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, VideoPageRoute);
+                    },
+                    child: Container(
+                      width: _size.width * 0.8,
+                      height: _size.height * 0.4,
+                      margin: EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/today_3.jpg'),
+                            fit: BoxFit.cover
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey[500],
+                              offset: Offset(4.0, 4.0),
+                              blurRadius: 15.0,
+                              spreadRadius: 1.0
+                          ),
+                          BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(-4.0, -4.0),
+                              blurRadius: 15.0,
+                              spreadRadius: 1.0
                           ),
                         ],
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 20.0),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 15.0),
-                    height: 180.0,
-                    child: ListView(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        SizedBox(width: 15.0),
-                        _weeklyCard(),
-                        SizedBox(width: 15.0),
-                        _weeklyCard(),
-                        SizedBox(width: 15.0),
-                        _weeklyCard(),
-                        SizedBox(width: 15.0),
-                        _weeklyCard(),
-                        SizedBox(width: 15.0),
-                        _weeklyCard(),
-                        SizedBox(width: 15.0),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 40.0,),
-          Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 50.0),
-            child: Text(
-              'TODAY',
-              style: TextStyle(
-                color: Color(_getColorHexFromStr('#5c492c')),
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-//                fontFamily: 'Timesroman',
-              ),
-            ),
-          ),
-          SizedBox(height: 10.0,),
-          Stack(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, VideoPageRoute);
-                  },
-                  child: Container(
-                    width: _size.width * 0.8,
-                    height: _size.height * 0.4,
-                    margin: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/today_3.jpg'),
-                          fit: BoxFit.cover
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey[500],
-                            offset: Offset(4.0, 4.0),
-                            blurRadius: 15.0,
-                            spreadRadius: 1.0
-                        ),
-                        BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(-4.0, -4.0),
-                            blurRadius: 15.0,
-                            spreadRadius: 1.0
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
