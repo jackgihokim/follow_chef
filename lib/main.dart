@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -59,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Container(
                 height: _size.height * 0.36,
-                color: Color(_getColorHexFromStr('#F5F5DC')),
+                color: Color(_getColorHexFromStr('#edeace')),
               ),
               Column(
                 children: <Widget>[
@@ -129,11 +131,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(bottom: 30.0),
+                    padding: EdgeInsets.only(bottom: 20.0),
                   ),
                   Container(
                     padding: EdgeInsets.only(left: 15.0, top: 15.0),
-                    height: 160.0,
+                    height: 180.0,
                     child: ListView(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -156,12 +158,60 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
+          SizedBox(height: 40.0,),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: EdgeInsets.only(left: 50.0),
+            child: Text(
+              '오늘의 레시피',
+              style: TextStyle(
+                color: Color(_getColorHexFromStr('#5c492c')),
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+//                fontFamily: 'Timesroman',
+              ),
+            ),
+          ),
+          SizedBox(height: 10.0,),
+          Stack(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 12.0, right: 12.0),
+                child: Container(
+                  width: _size.width * 0.8,
+                  height: _size.height * 0.4,
+                  margin: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    image: DecorationImage(
+                      image: AssetImage('assets/today_3.jpg'),
+                      fit: BoxFit.cover
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey[500],
+                          offset: Offset(4.0, 4.0),
+                          blurRadius: 15.0,
+                          spreadRadius: 1.0
+                      ),
+                      BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-4.0, -4.0),
+                          blurRadius: 15.0,
+                          spreadRadius: 1.0
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 
-  Container _weeklyCard() {
+  Widget _weeklyCard() {
     return Container(
       width: 300.0,
       margin: EdgeInsets.all(10.0),
@@ -170,10 +220,10 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 4,
-            blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
+            color: Colors.grey[300],
+            offset: Offset(0, 3),
+            blurRadius: 15.0,
+            spreadRadius: 1.0,
           ),
         ],
       ),
