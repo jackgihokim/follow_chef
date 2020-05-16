@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:followchef/routes/routing_constants.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -158,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(left: 12.0, right: 12.0),
                 child: GestureDetector(
                   onTap: () {
-
+                    Navigator.pushNamed(context, VideoPageRoute);
                   },
                   child: Container(
                     width: _size.width * 0.8,
