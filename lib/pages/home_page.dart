@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                                 left: 15.0,
                                 top: 15.0
                             ),
-                            hintText: '쉐프, 요리, 카테고리를 검색해보세요',
+                            hintText: 'Search for chef, cuisine, recipes',
                             hintStyle: TextStyle(
                                 color: Colors.grey
                             )
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                '인기있는 레시피',
+                                'POPULAR RECIPES',
                                 style: TextStyle(
                                   fontSize: 20.0,
 //                                  fontFamily: 'Timesroman',
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(bottom: 20.0),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 15.0, top: 15.0),
+                    padding: EdgeInsets.only(top: 15.0),
                     height: 180.0,
                     child: ListView(
                       shrinkWrap: true,
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.only(left: 50.0),
             child: Text(
-              '오늘의 레시피',
+              'TODAY',
               style: TextStyle(
                 color: Color(_getColorHexFromStr('#5c492c')),
                 fontSize: 30.0,
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                       image: DecorationImage(
-                          image: AssetImage('assets/today_3.jpg'),
+                          image: AssetImage('assets/images/today_3.jpg'),
                           fit: BoxFit.cover
                       ),
                       boxShadow: [
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               image: DecorationImage(
-                  image: AssetImage('assets/circle_chickenPlate.png')
+                  image: AssetImage('assets/images/circle_chickenPlate.png')
               ),
             ),
           ),
@@ -230,14 +230,14 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                '그릴 치킨과',
+                'Grilled Chicken',
                 style: TextStyle(
                   fontSize: 18.0,
 //                                      fontFamily: 'Quicksand'
                 ),
               ),
               Text(
-                '과일 샐러드',
+                'with Fruit Salad',
                 style: TextStyle(
                   fontSize: 18.0,
 //                                        fontFamily: 'Quicksand'
@@ -259,7 +259,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.5),
                       image: DecorationImage(
-                          image: AssetImage('assets/cook_jamie_oliver.jpg')
+                          image: AssetImage('assets/images/cook_jamie_oliver.jpg')
                       ),
                     ),
                   ),

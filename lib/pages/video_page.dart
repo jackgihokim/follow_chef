@@ -62,7 +62,7 @@ class _VideoPageState extends State<VideoPage> {
                   children: <Widget>[
                     SizedBox(height: 40.0),
                     Text(
-                      '레시피',
+                      'RECIPES',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
@@ -71,7 +71,7 @@ class _VideoPageState extends State<VideoPage> {
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      '야채 200g',
+                      'Vegetables 200g',
                       style: TextStyle(
                         color: Colors.white70,
                         fontSize: 20.0
@@ -85,35 +85,35 @@ class _VideoPageState extends State<VideoPage> {
                       ),
                     ),
                     Text(
-                      '카놀라유 60ml',
+                      'Canola Oil 60ml',
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 20.0
                       ),
                     ),
                     Text(
-                      '소금 1/2ts',
+                      'Salt 1/2ts',
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 20.0
                       ),
                     ),
                     Text(
-                      '박력분 250g',
+                      'Soft Flour 250g',
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 20.0
                       ),
                     ),
                     Text(
-                      '파마산 치즈가루 2Ts',
+                      'Parmesan Cheese 2Ts',
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 20.0
                       ),
                     ),
                     Text(
-                      '설탕 50g',
+                      'Sugar 50g',
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 20.0
@@ -159,7 +159,7 @@ class _VideoPageState extends State<VideoPage> {
               child: SizedBox(
                 height: 350,
                 child: Image.asset(
-                  'assets/today_3.jpg',
+                  'assets/images/today_3.jpg',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -180,21 +180,43 @@ class _VideoPageState extends State<VideoPage> {
             Positioned(
               top: 325,
               right: 20,
-              child: RaisedButton(
-                child: Text('주문하기'),
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)
+              child: ButtonTheme(
+                minWidth: 160.0,
+                height: 55.0,
+                child: RaisedButton(
+                  child: Text(
+                    'Order Now',
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      color: Colors.green
+                    ),
+                  ),
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)
+                  ),
+                  onPressed: (){
+                    Navigator.pushNamed(context, OrderPageRoute);
+                  },
                 ),
-                onPressed: (){
-                  Navigator.pushNamed(context, OrderPageRoute);
-                },
               ),
             ),
-            Container(height: 70.0, child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-            )),
+            Container(
+              height: 70.0,
+              child: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                leading: IconButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.keyboard_backspace,
+                    color: Colors.black,
+                  ),
+                ),
+              )
+            ),
           ],
         ),
       ),
