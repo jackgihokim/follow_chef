@@ -138,7 +138,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        _buildWeeklyCard(),
+                        SizedBox(width: 15.0),
+                        _weeklyCard(),
+                        SizedBox(width: 15.0),
+                        _weeklyCard(),
+                        SizedBox(width: 15.0),
+                        _weeklyCard(),
+                        SizedBox(width: 15.0),
+                        _weeklyCard(),
+                        SizedBox(width: 15.0),
+                        _weeklyCard(),
+                        SizedBox(width: 15.0),
                       ],
                     ),
                   ),
@@ -151,12 +161,21 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Container _buildWeeklyCard() {
+  Container _weeklyCard() {
     return Container(
       width: 300.0,
+      margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 4,
+            blurRadius: 5,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
       ),
       child: Row(
         children: <Widget>[
