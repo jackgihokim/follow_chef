@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:followchef/helpers/color_helper.dart';
 
 import 'package:followchef/routes/routing_constants.dart';
 
@@ -8,28 +9,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _getColorHexFromStr(String colorStr) {
-    colorStr = 'FF' + colorStr;
-    colorStr = colorStr.replaceAll('#', '');
-    int val = 0;
-    int len = colorStr.length;
-
-    for (int i = 0; i < len; i++) {
-      int hexDigit = colorStr.codeUnitAt(i);
-
-      if (hexDigit >= 48 && hexDigit <= 57) {
-        val += (hexDigit - 48) * (1 << (4 * (len - 1 - i)));
-      } else if (hexDigit >= 65 && hexDigit <= 70) {
-        val += (hexDigit - 55) * (1 << (4 * (len - 1 - i)));
-      } else if (hexDigit >= 97 && hexDigit <= 102) {
-        val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
-      } else {
-        throw FormatException('An error occurred when converting a color!');
-      }
-    }
-
-    return val;
-  }
+//  int _getColorHexFromStr(String colorStr) {
+//    colorStr = 'FF' + colorStr;
+//    colorStr = colorStr.replaceAll('#', '');
+//    int val = 0;
+//    int len = colorStr.length;
+//
+//    for (int i = 0; i < len; i++) {
+//      int hexDigit = colorStr.codeUnitAt(i);
+//
+//      if (hexDigit >= 48 && hexDigit <= 57) {
+//        val += (hexDigit - 48) * (1 << (4 * (len - 1 - i)));
+//      } else if (hexDigit >= 65 && hexDigit <= 70) {
+//        val += (hexDigit - 55) * (1 << (4 * (len - 1 - i)));
+//      } else if (hexDigit >= 97 && hexDigit <= 102) {
+//        val += (hexDigit - 87) * (1 << (4 * (len - 1 - i)));
+//      } else {
+//        throw FormatException('An error occurred when converting a color!');
+//      }
+//    }
+//
+//    return val;
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Container(
                   height: _size.height * 0.36,
-                  color: Color(_getColorHexFromStr('#edeace')),
+                  color: Color(ColorHelper(colorString: '#edeace').getColorHexFromStr()),
                 ),
                 Column(
                   children: <Widget>[
@@ -147,7 +148,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 'TODAY',
                 style: TextStyle(
-                  color: Color(_getColorHexFromStr('#5c492c')),
+                  color: Color(ColorHelper(colorString: '#5c492c').getColorHexFromStr()),
                   fontSize: 30.0,
                   fontWeight: FontWeight.bold,
 //                fontFamily: 'Timesroman',

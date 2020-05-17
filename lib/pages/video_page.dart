@@ -102,6 +102,21 @@ class _VideoPageState extends State<VideoPage> {
             ),
             Positioned(
               top: 325,
+              left: 100,
+              child: CircleAvatar(
+                backgroundColor: Colors.white,
+                radius: 25,
+                child: IconButton(
+                    color: Colors.green,
+                    onPressed: () {
+                      Navigator.pushNamed(context, CommunityPageRoute);
+                    },
+                    icon: Icon(Icons.chat,)
+                ),
+              ),
+            ),
+            Positioned(
+              top: 325,
               right: 20,
               child: ButtonTheme(
                 minWidth: 160.0,
@@ -111,14 +126,14 @@ class _VideoPageState extends State<VideoPage> {
                     'Order Now',
                     style: TextStyle(
                       fontSize: 25.0,
-                      color: Colors.green
+                      color: Colors.blueAccent
                     ),
                   ),
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)
                   ),
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pushNamed(context, OrderPageRoute);
                   },
                 ),
@@ -130,7 +145,7 @@ class _VideoPageState extends State<VideoPage> {
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 leading: IconButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: Icon(
@@ -224,7 +239,7 @@ class Recipes extends StatelessWidget {
             width: double.infinity,
             child: Row(
               children: <Widget>[
-                Icon(Icons.local_dining, color: Colors.white,),
+                Icon(Icons.restaurant, color: Colors.white,),
                 SizedBox(width: 5.0),
                 Text('501.9 kcal',style: TextStyle(color: Colors.white,fontSize: 18.0),),
                 Spacer(),
