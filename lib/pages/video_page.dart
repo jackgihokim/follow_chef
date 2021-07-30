@@ -14,7 +14,7 @@ class _VideoPageState extends State<VideoPage> {
   final Color color1 = Color(0xFFCF3529);
   final Color color2 = Color(0xFFE1372F);
   final Color color3 = Color(0xFFEF6C1C);
-  final String _apiKey = 'AIzaSyDOgNE5gZl-nvlpZI19c_xDuq1t3VftYxc';
+  final String _apiKey = 'AIzaSyDOgNE5gZl-xxxxxxxxx_xxxxxxxxxxxxx';
   final String _url = 'https://www.youtube.com/watch?v=dC-nMmMW77M';
 
   void _playYoutubeVideo() {
